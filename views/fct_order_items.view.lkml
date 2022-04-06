@@ -1,5 +1,5 @@
 view: fct_order_items {
-  sql_table_name: demo_production.fct_order_items ;;
+  sql_table_name: {{ _user_attributes['demo_dbt_dataset'] }}.fct_order_items ;;
 
   dimension_group: created {
     type: time
