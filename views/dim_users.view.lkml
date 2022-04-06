@@ -1,5 +1,5 @@
 view: dim_users {
-  sql_table_name: demo_production.dim_users ;;
+  sql_table_name: {{ _user_attributes['demo_dbt_dataset'] }}.dim_users ;;
 
   dimension: city {
     type: string
