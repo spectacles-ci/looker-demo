@@ -24,3 +24,27 @@ explore: order_items {
 explore: dim_products {
   view_label: "Demo - All Products"
 }
+
+test: orders_items_2021 {
+  explore_source: order_items {
+    column: count {
+      field: order_items.count
+    }
+    filters: [order_items.created_year: "2021"]
+  }
+  assert: matches_historic {
+   expression: ${order_items.count} = 12236  ;;
+  }
+}
+
+test: orders_items_2020 {
+  explore_source: order_items {
+    column: count {
+      field: order_items.count
+    }
+    filters: [order_items.created_year: "2020"]
+  }
+  assert: matches_historic {
+    expression: ${order_items.count} = 5235  ;;
+  }
+}
