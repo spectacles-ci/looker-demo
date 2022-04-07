@@ -1,5 +1,6 @@
 view: dim_users {
   sql_table_name: {{ _user_attributes['demo_dbt_dataset'] }}.dim_users ;;
+  view_label: "Users"
 
   dimension: city {
     type: string
