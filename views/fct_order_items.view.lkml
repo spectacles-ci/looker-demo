@@ -25,10 +25,15 @@ view: fct_order_items {
     sql: ${TABLE}.order_id ;;
   }
 
-  dimension: order_item_id {
+  # Step 1: Update id -> order_item_id
+
+  dimension: id {
+    primary_key: yes
     type: number
     sql: ${TABLE}.order_item_id ;;
   }
+
+  # Step 2: Add delivered_at dimension_group
 
   dimension: product_id {
     type: number
