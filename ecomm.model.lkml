@@ -2,6 +2,8 @@ connection: "bigquery_spectacles"
 
 include: "/views/*.view.lkml"
 
+label: "Demo - Ecommerce"
+
 explore: order_items {
   label: "Demo - Orders"
   from: fct_order_items
@@ -17,4 +19,8 @@ explore: order_items {
     relationship: many_to_one
     sql_on: ${fct_orders.user_id} = ${dim_users.user_id} ;;
   }
+}
+
+explore: dim_products {
+  view_label: "Demo - All Products"
 }

@@ -1,5 +1,6 @@
 view: dim_products {
   sql_table_name: {{ _user_attributes['demo_dbt_dataset'] }}.dim_products ;;
+  view_label: "Products"
 
   dimension: brand {
     type: string
