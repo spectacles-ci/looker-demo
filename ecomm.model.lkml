@@ -33,7 +33,7 @@ test: orders_items_2021 {
     filters: [order_items.created_year: "2021"]
   }
   assert: matches_historic {
-   expression: ${order_items.count} = 12236  ;;
+   expression: ${order_items.count} = 12045  ;;
   }
 }
 
@@ -45,6 +45,6 @@ test: orders_items_2020 {
     filters: [order_items.created_year: "2020"]
   }
   assert: matches_historic {
-    expression: ${order_items.count} = 5235  ;;
+    expression: ${order_items.count} = 4797  ;;
   }
 }
