@@ -30,7 +30,7 @@ view: fct_order_items {
 
   dimension: order_item_id {
     primary_key: yes
-    alias: [yes]
+    alias: [id]
     type: number
     sql: ${TABLE}.order_item_id ;;
   }
