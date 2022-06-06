@@ -68,7 +68,7 @@ view: fct_order_items {
       quarter,
       year
     ]
-    sql: ${TABLE}.returned_at ;;
+    sql: ${TABLE}.returned_timestamp ;;
   }
 
   dimension: sale_price {
