@@ -30,6 +30,7 @@ view: fct_order_items {
 
   dimension: order_item_id {
     primary_key: yes
+    alias: [yes]
     type: number
     sql: ${TABLE}.order_item_id ;;
   }
@@ -38,6 +39,7 @@ view: fct_order_items {
 
   dimension_group: delivered {
     type: time
+    datatype: epoch
     timeframes: [
       raw,
       time,
