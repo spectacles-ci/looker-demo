@@ -74,6 +74,10 @@ view: fct_order_items {
     sql: ${TABLE}.shipped_at ;;
   }
 
+  dimension: broken {
+    hidden: yes
+  }
+
   dimension: user_id {
     type: number
     sql: ${TABLE}.user_id ;;
