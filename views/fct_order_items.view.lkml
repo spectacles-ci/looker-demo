@@ -23,7 +23,7 @@ view: fct_order_items {
 
   dimension: order_id {
     type: number
-    sql: ${TABLE}.order_id ;;
+    sql: ${TABLE}.order_id_error ;;
   }
 
   # Step 1: Update id -> order_item_id
@@ -57,7 +57,7 @@ view: fct_order_items {
 
   dimension: sale_price {
     type: number
-    sql: ${TABLE}.sale_price ;;
+    sql: ${TABLE}.sale_price_error ;;
   }
 
   dimension_group: shipped {
