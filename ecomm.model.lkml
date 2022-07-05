@@ -21,6 +21,8 @@ explore: order_items {
   }
 }
 
+explore: fct_orders {}
+
 explore: dim_products {
   view_label: "Demo - All Products"
 }
