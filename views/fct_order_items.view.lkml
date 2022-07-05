@@ -36,6 +36,21 @@ view: fct_order_items {
 
   # Step 2: Add delivered_at dimension_group
 
+  dimension_group: delivered {
+    type: time
+    datatype: epoch
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}.delivered_at ;;
+  }
+
   dimension: product_id {
     type: number
     sql: ${TABLE}.product_id ;;
