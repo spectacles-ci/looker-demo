@@ -29,7 +29,7 @@ view: dim_users {
 
   dimension: email {
     type: string
-    sql: ${TABLE}.email ;;
+    sql: ${TABLE}.email_address ;;
   }
 
   dimension: first_name {
