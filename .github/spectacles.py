@@ -6,7 +6,7 @@ api_key = os.getenv("SPECTACLES_API_KEY")
 org_id = "WstGk40UEDhElCWTYiZ9"
 project_id = "okvva4n8RCwCWv84IzmD"
 suite_id = "ZTnRFH3OqE0We4bqlD3y"
-commit = os.getenv("GITHUB_SHA")
+commit = os.getenv("GIT_COMMIT")
 
 # Set the API key in header
 headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
