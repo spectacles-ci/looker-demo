@@ -18,11 +18,13 @@ payload = {
     "suite_id": suite_id,
     "project_id": project_id,
     "commit": commit,
-    "webhooks": {
-        "type": "github",
-        "commit": commit,
-        "repo": os.getenv("GITHUB_REPOSITORY"),
-    },
+    "webhooks": [
+        {
+            "type": "github",
+            "commit": commit,
+            "repo": os.getenv("GITHUB_REPOSITORY"),
+        }
+    ],
 }
 create_run_response = requests.post(url=create_run_url, headers=headers, json=payload)
 create_run_response.raise_for_status()
