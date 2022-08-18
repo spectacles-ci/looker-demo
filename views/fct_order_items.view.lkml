@@ -30,6 +30,7 @@ view: fct_order_items {
 
   dimension: order_item_id {
     primary_key: yes
+    alias: [id]
     type: number
     sql: ${TABLE}.order_item_id ;;
   }
@@ -38,7 +39,7 @@ view: fct_order_items {
 
   dimension: product_id {
     type: number
-    sql: ${TABLE}.products_id ;;
+    sql: ${TABLE}.product_id ;;
   }
 
   dimension_group: returned {
