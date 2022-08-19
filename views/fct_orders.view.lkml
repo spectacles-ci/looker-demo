@@ -21,11 +21,6 @@ view: fct_orders {
     sql: ${TABLE}.delivered_at ;;
   }
 
-  dimension: number_of_items {
-    type: number
-    sql: ${TABLE}.number_of_items ;;
-  }
-
   dimension: order_id {
     type: number
     sql: ${TABLE}.order_id ;;
