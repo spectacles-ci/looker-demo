@@ -23,7 +23,7 @@ view: fct_order_items {
 
   dimension: order_id {
     type: number
-    sql: ${TABLE}.order_id ;;
+    sql: ${TABLE}.order_items_id ;;
   }
 
   # Step 1: Update id -> order_item_id
