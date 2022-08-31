@@ -25,6 +25,7 @@ view: fct_order_items {
 
   dimension: order_item_id {
     primary_key: yes
+    alias: [id]
     type: number
     sql: ${TABLE}.order_item_id ;;
   }
@@ -32,6 +33,7 @@ view: fct_order_items {
   # Step 2: Add delivered_at dimension_group
 
   dimension_group: delivered {
+    datatype: epoch
     type: time
     timeframes: [
       raw,
