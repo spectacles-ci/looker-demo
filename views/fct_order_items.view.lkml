@@ -23,7 +23,7 @@ view: fct_order_items {
 
   # Step 1: Update id -> order_item_id
 
-  dimension: id {
+  dimension: order_item_id {
     primary_key: yes
     type: number
     sql: ${TABLE}.order_item_id ;;
@@ -34,6 +34,20 @@ view: fct_order_items {
   dimension: product_id {
     type: number
     sql: ${TABLE}.product_id ;;
+  }
+
+  dimension_group: delivered {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}.delivered_at ;;
   }
 
   dimension_group: returned {
