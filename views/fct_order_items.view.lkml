@@ -36,6 +36,21 @@ view: fct_order_items {
     sql: ${TABLE}.product_id ;;
   }
 
+  dimension_group: delivered {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}.delivered_at ;;
+  }
+
+
   dimension_group: returned {
     type: time
     timeframes: [
