@@ -23,7 +23,7 @@ view: fct_orders {
 
   dimension: number_of_items {
     type: number
-    sql: ${TABLE}.number_of_items ;;
+    sql: ${TABLE}.number_of_items_ ;;
   }
 
   dimension: order_id {
