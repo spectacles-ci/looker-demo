@@ -17,6 +17,7 @@ view: fct_order_items {
   }
 
   dimension: order_id {
+    alias: [id]
     type: number
     sql: ${TABLE}.order_id ;;
   }
@@ -37,6 +38,7 @@ view: fct_order_items {
   }
 
   dimension_group: delivered {
+    datatype: epoch
     type: time
     timeframes: [
       raw,
