@@ -1,11 +1,15 @@
 connection: "bigquery_spectacles"
 
-include: "/views/*.view.lkml"
+include: "/views/dim_products.view.lkml"
+include: "/views/dim_users.view.lkml"
+include: "/views/fct_order_items.view.lkml"
+include: "/views/fct_orders.view.lkml"
 
 label: "Demo - Ecommerce"
 
 explore: order_items {
   label: "Demo - Orders"
+  fields: [ALL_FIELDS*]
   from: fct_order_items
   join: fct_orders {
     relationship: many_to_one
@@ -23,6 +27,8 @@ explore: order_items {
 
 explore: dim_products {
   view_label: "Demo - All Products"
+  label: "Demo - All Products"
+  fields: [ALL_FIELDS*]
 }
 
 test: orders_items_2021 {
