@@ -1,5 +1,5 @@
 view: dylans_orders {
-  sql_table_name: analytics.fct_order_items ;;
+  sql_table_name: {{ _user_attributes['demo_dbt_dataset'] }}.fct_order_items ;;
   view_label: "Order Items"
 
   dimension: id {
