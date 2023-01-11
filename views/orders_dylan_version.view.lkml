@@ -8,6 +8,11 @@ view: dylans_orders {
     sql: ${TABLE}.order_item_id ;;
   }
 
+  dimension: was_delivered {
+    type: yesno
+    sql: ${TABLE}.was_delivered ;;
+  }
+
   dimension_group: created {
     type: time
     timeframes: [
