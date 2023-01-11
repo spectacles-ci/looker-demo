@@ -39,6 +39,7 @@ view: fct_orders {
 
   dimension: was_delivered {
     type: yesno
+    description: "Whether the order was delivered (Yes/No)."
     sql: ${TABLE}.was_delivered ;;
   }
 

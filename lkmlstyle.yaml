@@ -1,0 +1,14 @@
+custom_rules:
+  - title: Yesno dimension doesn't start with 'is_' or 'has_'
+    code: D100
+    rationale: Wording the name of a **yesno** dimension as a question makes it clear
+      to the user what a yes or no value represents.
+    select:
+    - dimension
+    filter:
+    - type: ParameterFilter
+      parameter_name: type
+      value: yesno
+    regex: ^(?:is|has|was)_
+    negative: false
+    type: PatternMatchRule
