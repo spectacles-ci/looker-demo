@@ -37,11 +37,6 @@ view: fct_orders {
     sql: ${TABLE}.user_id ;;
   }
 
-  dimension: was_delivered {
-    type: yesno
-    sql: ${TABLE}.was_delivered ;;
-  }
-
   measure: count_orders {
     type: count
     description: "A count of the number of orders."
