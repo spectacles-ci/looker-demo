@@ -72,7 +72,7 @@ view: dim_users {
     type: string
     description: "The postal code of the user's address."
     sql: ${TABLE}.postal_code ;;
-  }
+  ]
 
   dimension: state {
     type: string
