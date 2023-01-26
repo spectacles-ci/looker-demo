@@ -39,7 +39,7 @@ view: fct_orders {
 
   dimension: was_delivered {
     type: yesno
-    sql: ${TABLE}.was_delivered
+    sql: ${TABLE}.was_delivered ;;
   }
 
   measure: count_orders {
