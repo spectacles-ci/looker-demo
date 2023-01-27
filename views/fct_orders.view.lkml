@@ -36,7 +36,7 @@ view: fct_orders {
     description: "The ID of the associated user."
     sql: ${TABLE}.user_id ;;
   }
-
+  
   measure: count_orders {
     type: count
     description: "A count of the number of orders."

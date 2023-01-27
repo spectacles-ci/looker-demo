@@ -1,0 +1,5 @@
+select: [V110]
+
+file_overrides:
+  - path: views
+    select: [D200]
