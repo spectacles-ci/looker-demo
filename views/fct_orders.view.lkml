@@ -31,6 +31,11 @@ view: fct_orders {
     sql: ${TABLE}.order_status ;;
   }
 
+  dimension: store_name {
+    type: string
+    sql: ${TABLE}.store_name ;;
+  }
+
   dimension: user_id {
     type: number
     description: "The ID of the associated user."
