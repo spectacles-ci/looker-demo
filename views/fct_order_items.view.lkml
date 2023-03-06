@@ -89,4 +89,9 @@ view: fct_order_items {
     type: count
     drill_fields: []
   }
+
+  measure: sales_price_total {
+    type: sum
+    sql: ${sale_price} ;;
+  }
 }
