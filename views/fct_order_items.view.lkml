@@ -1,4 +1,4 @@
-view: fct_order_items {
+view: fct_order_items__error {
   sql_table_name: {{ _user_attributes['demo_dbt_dataset'] }}.fct_order_items ;;
   view_label: "Order Items"
   label: "Order Items"
