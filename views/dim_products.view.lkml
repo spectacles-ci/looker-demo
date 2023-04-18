@@ -13,7 +13,7 @@ view: dim_products {
   dimension: brand {
     type: string
     description: "The brand of the product."
-    sql: ${TABLE}.brand ;;
+    sql: $${TABLE}.brand ;;
   }
 
   dimension: category {
