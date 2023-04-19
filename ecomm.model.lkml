@@ -8,10 +8,9 @@ include: "/views/fct_orders.view.lkml"
 label: "Demo - Ecommerce"
 
 explore: order_items {
-  access_filter: {
-    user_attribute: region
-    field: fct_orders.region
-  }
+  sql_always_where:
+    ${fct_orders.region} = '{{ _user_attributes["region"] }}'
+    or '{{ _user_attributes["is_god"] }}' = 'yes' ;;
   label: "Demo - Orders"
   fields: [ALL_FIELDS*]
   from: fct_order_items
