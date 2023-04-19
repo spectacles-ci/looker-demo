@@ -13,7 +13,7 @@ access_grant: is_emea_employee {
 }
 
 explore: order_items {
-  # required_access_grants: [is_emea_employee]
+  required_access_grants: [is_emea_employee]
   label: "Demo - Orders"
   fields: [ALL_FIELDS*]
   from: fct_order_items
