@@ -7,13 +7,11 @@ include: "/views/fct_orders.view.lkml"
 
 label: "Demo - Ecommerce"
 
-access_grant: is_emea_employee {
-  user_attribute: region
-  allowed_values: ["EMEA"]
-}
-
 explore: order_items {
-  required_access_grants: [is_emea_employee]
+  access_filter: {
+    user_attribute: region
+    field: fct_orders.region
+  }
   label: "Demo - Orders"
   fields: [ALL_FIELDS*]
   from: fct_order_items
