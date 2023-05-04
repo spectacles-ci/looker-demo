@@ -7,6 +7,7 @@ view: fct_order_items {
 
   dimension: order_item_id {
     primary_key: yes
+    alias: [id]
     type: number
     hidden: yes
     sql: ${TABLE}.order_item_id ;;
@@ -31,6 +32,8 @@ view: fct_order_items {
 
   dimension_group: delivered {
     type: time
+    datatype: epoch
+    description: "The date/timestamp the line item was delivered."
     timeframes: [
       raw,
       time,
