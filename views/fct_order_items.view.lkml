@@ -30,6 +30,7 @@ view: fct_order_items {
   # Step 2: Add delivered_at dimension_group
 
   dimension: order_id {
+    alias: [id]
     type: number
     description: "The ID of the associated order."
     sql: ${TABLE}.order_id ;;
@@ -43,6 +44,7 @@ view: fct_order_items {
 
   dimension_group: delivered {
     type: time
+    datatype: timestamp
     description: "new desc"
     timeframes: [
       raw,
