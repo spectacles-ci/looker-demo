@@ -44,7 +44,7 @@ view: fct_order_items {
 
   dimension_group: delivered {
     type: time
-    datatype: timestamp
+    datatype: epoch
     description: "new desc"
     timeframes: [
       raw,
