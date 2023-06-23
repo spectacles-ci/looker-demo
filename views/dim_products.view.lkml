@@ -16,6 +16,12 @@ view: dim_products {
     sql: ${TABLE}.brand ;;
   }
 
+  dimension: name {
+    type: string
+    description: "The name of the product."
+    sql: ${TABLE}.name ;;
+  }
+
   dimension: category {
     type: string
     description: "The category of the product."
@@ -32,12 +38,6 @@ view: dim_products {
     type: string
     description: "The department of the product."
     sql: ${TABLE}.department ;;
-  }
-
-  dimension: name {
-    type: string
-    description: "The name of the product."
-    sql: ${TABLE}.name ;;
   }
 
   dimension: retail_price {
