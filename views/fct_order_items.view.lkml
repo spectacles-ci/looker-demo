@@ -6,6 +6,7 @@ view: fct_order_items {
   # Step 1: Update id -> order_item_id
 
   dimension: order_item_id {
+    alias: [id]
     primary_key: yes
     type: number
     hidden: yes
@@ -14,6 +15,7 @@ view: fct_order_items {
 
   dimension_group: delivered {
     type: time
+    datatype: epoch
     description: "The date/timestamp the line item was created."
     timeframes: [
       raw,
