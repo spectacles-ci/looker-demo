@@ -12,4 +12,5 @@ jobs:
       with:
         python-version: '3.9' 
         cache: 'pip'
+    - run: pip install -r .github/requirements.txt
     - run: python .github/spectacles.py
