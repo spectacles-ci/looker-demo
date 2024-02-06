@@ -26,13 +26,14 @@ create_run_response.raise_for_status()
 run_id = create_run_response.json()["run_id"]
 
 run_status = "queued"
-run_url = (
+get_run_url = (
     f"https://app.spectacles.dev/api/v1/org/{org_id}/proj/{project_id}/run/{run_id}"
 )
 
-print(
-    f"Find run details at: https://app.spectacles.dev/org/{org_id}/proj/{project_id}/run/{run_id}"
-)
+run_url = f"https://app.spectacles.dev/org/{org_id}/proj/{project_id}/run/{run_id}"
+
+print(f"Find run details at: {run_url}")
+print(f"::set-output name=run_url::{run_url}")
 
 while run_status not in ["cancelled", "error", "passed", "failed"]:
 
@@ -40,7 +41,7 @@ while run_status not in ["cancelled", "error", "passed", "failed"]:
     time.sleep(15)
 
     # Get the run's results
-    run_response = requests.get(url=run_url, headers=headers)
+    run_response = requests.get(url=get_run_url, headers=headers)
 
     run_status = run_response.json()["status"]
 
