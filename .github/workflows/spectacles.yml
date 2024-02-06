@@ -13,10 +13,10 @@ jobs:
         python-version: '3.9' 
         cache: 'pip'
 
-    # - run: pip install -r .github/requirements.txt
-    # - name: Run Spectacles
-    #   run: python .github/spectacles.py
-    #   id: spectacles
+    - run: pip install -r .github/requirements.txt
+    - name: Run Spectacles
+      run: python .github/spectacles.py
+      id: spectacles
 
     - name: Find Comment
       uses: peter-evans/find-comment@v3
@@ -24,7 +24,7 @@ jobs:
       with:
         issue-number: ${{ github.event.pull_request.number }}
         comment-author: 'github-actions[bot]'
-        body-includes: The latest Spectacles run can be found here
+        body-includes: The latest Spectacles run for commit
 
     - name: Create comment
       if: steps.find_comment.outputs.comment-id == ''
@@ -32,9 +32,7 @@ jobs:
       with:
         issue-number: ${{ github.event.pull_request.number }}
         body: |
-          The latest Spectacles run can be found here: ${{ steps.spectacles.outputs.run_url }}
-
-          commit: ${{ env.GIT_COMMIT }}
+          The latest Spectacles run for commit ${{ env.GIT_COMMIT }} can be found here: ${{ steps.spectacles.outputs.run_url }}
 
     - name: Update comment
       if: steps.find_comment.outputs.comment-id != ''
@@ -42,7 +40,6 @@ jobs:
       with:
         issue-number: ${{ github.event.pull_request.number }}
         comment-id: ${{ steps.find_comment.outputs.comment-id }}
+        edit-mode: replace
         body: |
-          The latest Spectacles run can be found here: ${{ steps.spectacles.outputs.run_url }}
-
-          commit: ${{ env.GIT_COMMIT }}
+          The latest Spectacles run for commit ${{ env.GIT_COMMIT }} can be found here: ${{ steps.spectacles.outputs.run_url }}
