@@ -41,7 +41,7 @@ jobs:
       uses: peter-evans/create-or-update-comment@v4
       with:
         issue-number: ${{ github.event.pull_request.number }}
-        comment-id: ${{ steps.fc.outputs.comment-id }}
+        comment-id: ${{ steps.find_comment.outputs.comment-id }}
         body: |
           The latest Spectacles run can be found here: ${{ steps.spectacles.outputs.run_url }}
 
