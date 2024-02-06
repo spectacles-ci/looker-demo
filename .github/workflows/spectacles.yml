@@ -34,7 +34,7 @@ jobs:
         body: |
           This comment was written by a bot!
 
-          The latest Spectacles run can be found here: ${{ steps.spectacles.outputs.url }}
+          The latest Spectacles run can be found here: ${{ steps.spectacles.outputs.run_url }}
 
     - name: Update comment
       if: steps.find_comment.outputs.comment-id != ''
@@ -44,4 +44,4 @@ jobs:
         body: |
           This comment was written by a bot!
 
-          The latest Spectacles run can be found here: ${{ steps.spectacles.outputs.url }}
+          The latest Spectacles run can be found here: ${{ steps.spectacles.outputs.run_url }}
