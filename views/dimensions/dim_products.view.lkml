@@ -16,6 +16,8 @@ view: dim_products {
     sql: ${TABLE}.brand ;;
   }
 
+  dimension: garbage {}
+
   dimension: category {
     type: string
     description: "The category of the product."
