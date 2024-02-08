@@ -20,6 +20,7 @@ jobs:
 
     - name: Find Comment
       uses: peter-evans/find-comment@v3
+      if: steps.spectacles.outputs.run_url != '' && (success() || failure())
       id: find_comment
       with:
         issue-number: ${{ github.event.pull_request.number }}
@@ -27,7 +28,7 @@ jobs:
         body-includes: The latest Spectacles run for commit
 
     - name: Create comment
-      if: steps.find_comment.outputs.comment-id == ''
+      if: steps.spectacles.outputs.run_url != '' && steps.find_comment.outputs.comment-id == '' && (success() || failure())
       uses: peter-evans/create-or-update-comment@v4
       with:
         issue-number: ${{ github.event.pull_request.number }}
@@ -35,7 +36,7 @@ jobs:
           The latest Spectacles run for commit ${{ env.GIT_COMMIT }} can be found here: ${{ steps.spectacles.outputs.run_url }}
 
     - name: Update comment
-      if: steps.find_comment.outputs.comment-id != ''
+      if: steps.spectacles.outputs.run_url != '' && steps.find_comment.outputs.comment-id != '' && (success() || failure())
       uses: peter-evans/create-or-update-comment@v4
       with:
         issue-number: ${{ github.event.pull_request.number }}
