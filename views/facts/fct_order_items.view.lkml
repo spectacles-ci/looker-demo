@@ -75,7 +75,7 @@ view: fct_order_items {
       quarter,
       year
     ]
-    sql: ${TABLE}.shipped_at ;;
+    sql: ${TABLE}.shipped_at_error ;;
   }
 
   dimension: user_id {
