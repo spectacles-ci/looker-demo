@@ -1,9 +1,9 @@
 connection: "bigquery_spectacles"
 
-include: "/views/dim_products.view.lkml"
-include: "/views/dim_users.view.lkml"
-include: "/views/fct_order_items.view.lkml"
-include: "/views/fct_orders.view.lkml"
+include: "/views/dimensions/dim_products.view.lkml"
+include: "/views/dimensions/dim_users.view.lkml"
+include: "/views/facts/fct_order_items.view.lkml"
+include: "/views/facts/fct_orders.view.lkml"
 
 label: "Demo - Ecommerce"
 
