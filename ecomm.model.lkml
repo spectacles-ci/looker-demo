@@ -25,6 +25,8 @@ explore: order_items {
   }
 }
 
+# This is a comment
+
 explore: dim_products {
   view_label: "Demo - All Products"
   label: "Demo - All Products"
