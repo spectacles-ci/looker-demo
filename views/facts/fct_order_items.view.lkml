@@ -14,6 +14,7 @@ view: fct_order_items {
 
   dimension_group: created {
     type: time
+    alias: [id]
     description: "The date/timestamp the line item was created."
     timeframes: [
       raw,
@@ -30,6 +31,8 @@ view: fct_order_items {
   # Step 2: Add delivered_at dimension_group
 
   dimension_group: delivered {
+    description: "The date/timestamp the line item was delivered."
+    datatype: epoch
     type: time
     timeframes: [
       raw,
