@@ -21,7 +21,6 @@ custom_rules:
     criteria:
     - type: ParameterFilter
       parameter_name: tags
-    negative: false
     type: ParameterRule
     
   - title: Measure missing synonym tags
@@ -32,7 +31,6 @@ custom_rules:
     criteria:
     - type: ParameterFilter
       parameter_name: tags
-    negative: false
     type: ParameterRule
     
   - title: Explore missing synonym tags
@@ -43,5 +41,4 @@ custom_rules:
     criteria:
     - type: ParameterFilter
       parameter_name: tags
-    negative: false
     type: ParameterRule
