@@ -12,7 +12,6 @@ select:
   - E400
 
 custom_rules:
-
   - title: Dimension missing synonym tags
     code: D400
     rationale: 'Dimensions should specify tags with synonyms, i.e. other terms used by our company to refer to this concept or entity. These synonyms are used by AI assistants to identify the correct fields to query when answering questions.'
