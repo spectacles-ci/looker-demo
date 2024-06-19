@@ -1,0 +1,47 @@
+select:
+  - D100
+  - D200
+  - D301
+  - D400
+  - M100
+  - M101
+  - M102
+  - M103
+  - M400
+  - V100
+  - E400
+
+custom_rules:
+
+  - title: Dimension missing synonym tags
+    code: D400
+    rationale: 'Dimensions should specify tags with synonyms, i.e. other terms used by our company to refer to this concept or entity. These synonyms are used by AI assistants to identify the correct fields to query when answering questions.'
+    select:
+    - dimension
+    criteria:
+    - type: ParameterFilter
+      parameter_name: tags
+    negative: false
+    type: ParameterRule
+    
+  - title: Measure missing synonym tags
+    code: M400
+    rationale: 'Measures should specify tags with synonyms, i.e. other terms used by our company to refer to this concept or entity. These synonyms are used by AI assistants to identify the correct fields to query when answering questions.'
+    select:
+    - measure
+    criteria:
+    - type: ParameterFilter
+      parameter_name: tags
+    negative: false
+    type: ParameterRule
+    
+  - title: Explore missing synonym tags
+    code: E400
+    rationale: 'Explores should specify tags with synonyms, i.e. other terms used by our company to refer to this concept or entity. These synonyms are used by AI assistants to identify the correct fields to query when answering questions.'
+    select:
+    - explore
+    criteria:
+    - type: ParameterFilter
+      parameter_name: tags
+    negative: false
+    type: ParameterRule
