@@ -12,6 +12,7 @@ view: fct_order_items {
     sql: ${TABLE}.order_item_id ;;
   }
 
+
   dimension_group: created {
     type: time
     description: "The date/timestamp the line item was created."
