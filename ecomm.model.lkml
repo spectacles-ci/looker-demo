@@ -1,4 +1,4 @@
-connection: "bigquery_spectacles"
+connection: "thelook"
 
 include: "/views/dimensions/dim_products.view.lkml"
 include: "/views/dimensions/dim_users.view.lkml"
