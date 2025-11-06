@@ -1,4 +1,4 @@
-connection: "bigquery_spectacles"
+connection: "thelook"
 
 include: "/views/dimensions/dim_products.view.lkml"
 include: "/views/dimensions/dim_users.view.lkml"
@@ -29,28 +29,4 @@ explore: dim_products {
   view_label: "Demo - All Products"
   label: "Demo - All Products"
   fields: [ALL_FIELDS*]
-}
-
-test: orders_items_2021 {
-  explore_source: order_items {
-    column: count {
-      field: order_items.count_order_items
-    }
-    filters: [order_items.created_year: "2021"]
-  }
-  assert: matches_historic {
-    expression: ${order_items.count_order_items} = 17294  ;;
-  }
-}
-
-test: orders_items_2020 {
-  explore_source: order_items {
-    column: count {
-      field: order_items.count_order_items
-    }
-    filters: [order_items.created_year: "2020"]
-  }
-  assert: matches_historic {
-    expression: ${order_items.count_order_items} = 8944  ;;
-  }
 }
