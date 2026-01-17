@@ -1,0 +1,46 @@
+name: Run Spectacles
+on: pull_request
+jobs:
+  run-spectacles:
+    runs-on: ubuntu-latest
+    env:
+      SPECTACLES_API_KEY: ${{ secrets.SPECTACLES_API_KEY }}
+      GIT_COMMIT: ${{ github.event.pull_request.head.sha }}
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.9' 
+        cache: 'pip'
+
+    - run: pip install -r .github/requirements.txt
+    - name: Run Spectacles
+      run: python .github/spectacles.py
+      id: spectacles
+
+    - name: Find Comment
+      uses: peter-evans/find-comment@v3
+      if: steps.spectacles.outputs.run_url != '' && (success() || failure())
+      id: find_comment
+      with:
+        issue-number: ${{ github.event.pull_request.number }}
+        comment-author: 'github-actions[bot]'
+        body-includes: The latest Spectacles run for commit
+
+    - name: Create comment
+      if: steps.spectacles.outputs.run_url != '' && steps.find_comment.outputs.comment-id == '' && (success() || failure())
+      uses: peter-evans/create-or-update-comment@v4
+      with:
+        issue-number: ${{ github.event.pull_request.number }}
+        body: |
+          The latest Spectacles run for commit ${{ env.GIT_COMMIT }} can be found here: ${{ steps.spectacles.outputs.run_url }}
+
+    - name: Update comment
+      if: steps.spectacles.outputs.run_url != '' && steps.find_comment.outputs.comment-id != '' && (success() || failure())
+      uses: peter-evans/create-or-update-comment@v4
+      with:
+        issue-number: ${{ github.event.pull_request.number }}
+        comment-id: ${{ steps.find_comment.outputs.comment-id }}
+        edit-mode: replace
+        body: |
+          The latest Spectacles run for commit ${{ env.GIT_COMMIT }} can be found here: ${{ steps.spectacles.outputs.run_url }}
